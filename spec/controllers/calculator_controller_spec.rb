@@ -12,12 +12,17 @@ RSpec.describe CalculatorController do
     it "renders the index template with empty result" do
       post :create, calculator: {operation: nil}
       expect(response).to render_template("index")
-      expect(assigns(:result)).to eq("")
+      expect(assigns(:result)).to eq(0.0)
     end
 
     it "renders sets result appropriately" do
       post :create, calculator: {operation: "5*3+1+6/2+9*100"}
-      expect(assigns(:result)).to eq(919)
+      expect(assigns(:result)).to eq(919.0)
+    end
+
+    it "renders sets result appropriately" do
+      post :create, calculator: {operation: "5*3+1+6/85+9*100"}
+      expect(assigns(:result)).to eq(916.07)
     end
   end
 end
