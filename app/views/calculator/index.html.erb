@@ -1,0 +1,8 @@
+<%= form_for :calculator, url: { action: :new }, method: :get do |f|   %>
+  <%= text_field :operation, params[:operation] %>
+  <%= f.submit 'Calculate!' %>
+<% end %>
+
+<% unless @result.nil? %>
+  <p> Result = <%= @result %> </p>
+<% end %>
