@@ -1,5 +1,5 @@
-<%= form_for :calculator, url: { action: :new }, method: :get do |f|   %>
-  <%= text_field :operation, params[:operation] %>
+<%= form_for :calculator, url: { action: :create }, format: :json do |f|   %>
+  <%= f.text_field :operation %>
   <%= f.submit 'Calculate!' %>
 <% end %>
 

@@ -1,9 +1,11 @@
+require 'calc'
+
 class CalculatorController < ApplicationController
   def index
   end
 
   def create
-    @result = Calculator.compute(params[:operation].first)
+    @result = Calc.evaluate(params[:calculator][:operation])
     render :index
   end
 end
